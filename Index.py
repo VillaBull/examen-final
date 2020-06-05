@@ -5,8 +5,8 @@ from datetime import datetime
 
 master = Tk()
 
-ancho = 600
-alto = 400
+ancho = 800
+alto = 500
 
 master.geometry(str(ancho) + "x" + str(alto))
 master.title("Examen Final")
@@ -24,39 +24,41 @@ month = IntVar()
 year = IntVar()
 
 def ContandoLosDías():
-    StrFecha = f"{year.get()}-{month.get()}-{day.get()}"
-    date_object = datetime.strptime(StrFecha, '%Y-%m-%d')
-    today = datetime.today()
+    fecha = f"{year.get()}-{month.get()}-{day.get()}"
+    date_object = datetime.strptime(fecha, '%Y-%m-%d')
 
-    x1 = today
-    x2 = date_object
-    respuesta1 = abs(x1-x2).days
+    today= datetime.today()
+    
+    c1 = today
+    c2 = date_object
+    result1 = abs(c1-c2).days 
 
-    respuesta1 = f"tu fecha de nacimiento es{date_object} y ha vivido {respuesta1}"
+    respuesta = f"Naciste el  {date_object} y has vivido {result1} días."
 
-    lblresp.configure(Text = respuesta1)
+    lblresp.config(text=respuesta)
 
-    def ContandoLasLetras():
-        Nombre = f"{nombre.get()}"
-        Apellido = f"{apellido.get()}"
+def contarLetras():
 
-        contar1 = len(nombre)
-        contar2 = len(apellido)
+    fNombre = f"{nombre.get()}"
+    fApellido = f"{apellido.get()}"
 
-        if contar1 % 2 == 0:
-            a1 = f"{nombre}el nombre ingresado es de numero par"
-        else:
-            a1 = f"{nombre}el nombre ingresado es de numero impar"
+    conteo1 = len(fNombre)
+    conteo2 = len(fApellido)
+  
 
+    if conteo1 % 2 == 0:
+        x1 = f"{fNombre} el nombre ingresado es de numero par"
+    else:
+        x1 = f"{fNombre} El nombre ingresado es de numero impar"
 
-        if contar2 % 2 == 0:
-             a2 = f"{apellido}el apellido ingresado es de numero par"
-        else:
-             a2 = f"{apellido} el apellido ingresado es de numero impar"
+    if conteo2 % 2 == 0:
+        x2 = f"{fApellido} El Apellido ingresado es de numero Par."
+    else:
+        x2 = f"{fApellido} El Apellido ingresado es de número impar."
 
-        respuesta2 = f"{a1} y {a2}"
+    respuesta = f"{x1} y  {x2} "
 
-        lblresp.configure(text = respuesta2)
+    lblresp.config(text= respuesta)
 
 nombres = Label(MyFrame, text = "Nombre: ")
 nombres.grid(row=2, column=1)
@@ -73,25 +75,47 @@ txtApellido.grid(row=3, column=2)
 Días = Label(MyFrame, text = "Día: ")
 Días.grid(row=4, column=1)
 Días.config(padx=5, pady=5)
-txtDías = Entry(MyFrame, textvariable = nombre)
+txtDías = Entry(MyFrame, textvariable = day)
 txtDías.grid(row=4, column=2)
 
 Meses = Label(MyFrame, text = "Mes: ")
 Meses.grid(row=5, column=1)
 Meses.config(padx=5, pady=5)
-txtMeses = Entry(MyFrame, textvariable = nombre)
+txtMeses = Entry(MyFrame, textvariable = month)
 txtMeses.grid(row=5, column=2)
 
 Años = Label(MyFrame, text = "Año: ")
 Años.grid(row=6, column=1)
 Años.config(padx=5, pady=5)
-txtAños = Entry(MyFrame, textvariable = nombre)
+txtAños = Entry(MyFrame, textvariable = year)
 txtAños.grid(row=6, column=2)
-
+    
 btn1 = Button(MyFrame, text = "Función 1")
-btn1.grid(row = 7, column = 0)
+btn1.grid(row = 7, column = 1)
 btn1.config(padx=8, pady=8)
 
+btn2 = Button(MyFrame, text = "Función 2", command = ContandoLosDías)
+btn2.grid(row = 7, column = 2)
+btn2.config(padx=8, pady=8)
 
-    
+btn3 = Button(MyFrame, text = "Función 3", command = contarLetras)
+btn3.grid(row = 7, column = 3)
+btn3.config(padx=8, pady=8)
+
+btn4 = Button(MyFrame, text = "Función 4")
+btn4.grid(row = 7, column = 4)
+btn4.config(padx=8, pady=8)
+
+btn5 = Button(MyFrame, text = "Función 5")
+btn5.grid(row = 7, column = 5)
+btn5.config(padx=8, pady=8)
+
+lblresp = Label(MyFrame, text = "Acá saldrá la respuesta: ")
+lblresp.grid(row=9, column = 0)
+lblresp.config(padx=8, pady=8)
+
+lblX=Label(MyFrame)
+lblX.grid(row=10, column=0)
+lblX.config(padx=10, pady=10)
+
 master.mainloop()
