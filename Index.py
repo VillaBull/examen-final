@@ -14,7 +14,7 @@ master.title("Examen Final")
 MyFrame=Frame()
 MyFrame.pack()
 Titulo = Label(MyFrame, text="Bienvenido")
-Titulo.grid(row=1, column=1)
+Titulo.grid(row=1, column=1, sticky=W + E)
 Titulo.config(font=("comic sans ms",20))
 
 nombre = StringVar()
@@ -70,63 +70,71 @@ def invertir_nombre():
     invirtiendo = invirtiendo[::-1]
     respuesta = nombre.get() + " " + apellido.get() + " al revés es: "+ invirtiendo
     lblresp.config(text= respuesta)
+
+def contarNombre():
+    contar = nombre.get()
+    contar2 = apellido.get()
+    
+    result = len(re.findall("[aeiouAEIOUáéíóúÁÉÍÓÚ]", contar, re.IGNORECASE))
+    result2 = len(re.findall("[aeiouAEIOUáéíóúÁÉÍÓÚ]", contar2, re.IGNORECASE))
+    result3 = len(re.findall("[bcdfghjklmnñpqrstvwxyzBCDFGHJKLMNÑPQRSTVWXYZ]", contar, re.IGNORECASE))
+    result4 = len(re.findall("[bcdfghjklmnñpqrstvwxyzBCDFGHJKLMNÑPQRSTVWXYZ]", contar2, re.IGNORECASE))
+    
+    texto = "las vocales de su nombre son:", result, "las vocales de su apellido son: ", result2, "las consonantes de su nombre son:", result3, "las consonantes de su apellido son:", result4
+    lblresp.config(text= texto)
     
 nombres = Label(MyFrame, text = "Nombre: ")
-nombres.grid(row=2, column=1)
+nombres.grid(row=2, column=1, sticky = W+E)
 nombres.config(padx=5, pady=5)
 txtnombres = Entry(MyFrame, textvariable = nombre)
 txtnombres.grid(row=2, column=2)
 
 Apellidos = Label(MyFrame, text = "Apellido: ")
-Apellidos.grid(row=3, column=1)
+Apellidos.grid(row=3, column=1, sticky = W+E)
 Apellidos.config(padx=10, pady=10)
 txtApellido = Entry(MyFrame, textvariable = apellido)
 txtApellido.grid(row=3, column=2)
 
 Días = Label(MyFrame, text = "Día: ")
-Días.grid(row=4, column=1)
+Días.grid(row=4, column=1, sticky = W+E)
 Días.config(padx=5, pady=5)
 txtDías = Entry(MyFrame, textvariable = day)
 txtDías.grid(row=4, column=2)
 
 Meses = Label(MyFrame, text = "Mes: ")
-Meses.grid(row=5, column=1)
+Meses.grid(row=5, column=1, sticky = W+E)
 Meses.config(padx=5, pady=5)
 txtMeses = Entry(MyFrame, textvariable = month)
 txtMeses.grid(row=5, column=2)
 
 Años = Label(MyFrame, text = "Año: ")
-Años.grid(row=6, column=1)
+Años.grid(row=6, column=1, sticky = W+E)
 Años.config(padx=5, pady=5)
 txtAños = Entry(MyFrame, textvariable = year)
 txtAños.grid(row=6, column=2)
     
 btn1 = Button(MyFrame, text = "Función 1", command= bf)
-btn1.grid(row = 7, column = 1)
+btn1.grid(row = 7, column = 1, sticky = W+E)
 btn1.config(padx=8, pady=8)
 
 btn2 = Button(MyFrame, text = "Función 2", command = ContandoLosDías)
-btn2.grid(row = 7, column = 2)
+btn2.grid(row = 7, column = 2, sticky = W+E)
 btn2.config(padx=8, pady=8)
 
 btn3 = Button(MyFrame, text = "Función 3", command = contarLetras)
-btn3.grid(row = 7, column = 3)
+btn3.grid(row = 7, column = 3, sticky = W+E)
 btn3.config(padx=8, pady=8)
 
-btn4 = Button(MyFrame, text = "Función 4")
-btn4.grid(row = 7, column = 4)
+btn4 = Button(MyFrame, text = "Función 4", command=contarNombre)
+btn4.grid(row = 7, column = 4, sticky = W+E)
 btn4.config(padx=8, pady=8)
 
 btn5 = Button(MyFrame, text = "Función 5", command=invertir_nombre)
-btn5.grid(row = 7, column = 5)
+btn5.grid(row = 7, column = 5, sticky = W+E)
 btn5.config(padx=8, pady=8)
 
 lblresp = Label(MyFrame, text = "Acá saldrá la respuesta: ")
-lblresp.grid(row=9, column = 0)
+lblresp.grid(row=9, column = 0, sticky = W+E)
 lblresp.config(padx=8, pady=8)
-
-lblX=Label(MyFrame)
-lblX.grid(row=10, column=0)
-lblX.config(padx=10, pady=10)
 
 master.mainloop()
