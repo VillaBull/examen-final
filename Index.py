@@ -59,6 +59,11 @@ def contarLetras():
     respuesta = f"{x1} y  {x2} "
 
     lblresp.config(text= respuesta)
+
+def bf():
+    print("dia", bin(day.get())[2:], "mes", bin(month.get())[2:], "año", bin(year.get())[2:])
+    respuesta = "la fecha en binario es: " + "dia", bin(day.get())[2:], "mes", bin(month.get())[2:], "año", bin(year.get())[2:]
+    lblresp.config(text= respuesta)
     
 nombres = Label(MyFrame, text = "Nombre: ")
 nombres.grid(row=2, column=1)
@@ -90,7 +95,7 @@ Años.config(padx=5, pady=5)
 txtAños = Entry(MyFrame, textvariable = year)
 txtAños.grid(row=6, column=2)
     
-btn1 = Button(MyFrame, text = "Función 1")
+btn1 = Button(MyFrame, text = "Función 1", command= bf)
 btn1.grid(row = 7, column = 1)
 btn1.config(padx=8, pady=8)
 
@@ -102,7 +107,7 @@ btn3 = Button(MyFrame, text = "Función 3", command = contarLetras)
 btn3.grid(row = 7, column = 3)
 btn3.config(padx=8, pady=8)
 
-btn4 = Button(MyFrame, text = "Función 4",)
+btn4 = Button(MyFrame, text = "Función 4")
 btn4.grid(row = 7, column = 4)
 btn4.config(padx=8, pady=8)
 
