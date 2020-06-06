@@ -64,6 +64,12 @@ def bf():
     print("dia", bin(day.get())[2:], "mes", bin(month.get())[2:], "año", bin(year.get())[2:])
     respuesta = "la fecha en binario es: " + "dia", bin(day.get())[2:], "mes", bin(month.get())[2:], "año", bin(year.get())[2:]
     lblresp.config(text= respuesta)
+
+def invertir_nombre():
+    invirtiendo = nombre.get()+" "+apellido.get()
+    invirtiendo = invirtiendo[::-1]
+    respuesta = nombre.get() + " " + apellido.get() + " al revés es: "+ invirtiendo
+    lblresp.config(text= respuesta)
     
 nombres = Label(MyFrame, text = "Nombre: ")
 nombres.grid(row=2, column=1)
@@ -111,7 +117,7 @@ btn4 = Button(MyFrame, text = "Función 4")
 btn4.grid(row = 7, column = 4)
 btn4.config(padx=8, pady=8)
 
-btn5 = Button(MyFrame, text = "Función 5")
+btn5 = Button(MyFrame, text = "Función 5", command=invertir_nombre)
 btn5.grid(row = 7, column = 5)
 btn5.config(padx=8, pady=8)
 
