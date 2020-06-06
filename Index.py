@@ -59,7 +59,7 @@ def contarLetras():
     respuesta = f"{x1} y  {x2} "
 
     lblresp.config(text= respuesta)
-
+    
 nombres = Label(MyFrame, text = "Nombre: ")
 nombres.grid(row=2, column=1)
 nombres.config(padx=5, pady=5)
@@ -102,7 +102,7 @@ btn3 = Button(MyFrame, text = "Función 3", command = contarLetras)
 btn3.grid(row = 7, column = 3)
 btn3.config(padx=8, pady=8)
 
-btn4 = Button(MyFrame, text = "Función 4")
+btn4 = Button(MyFrame, text = "Función 4",)
 btn4.grid(row = 7, column = 4)
 btn4.config(padx=8, pady=8)
 
